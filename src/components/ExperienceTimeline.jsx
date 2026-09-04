@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { experienceData, volunteerExperience, educationData } from '../data/portfolioData';
 import { sound } from '../utils/audio';
-import { Briefcase, ChevronDown, ChevronUp, GraduationCap, HeartHandshake, MapPin, Calendar, CheckCircle2, Sparkles } from 'lucide-react';
+import { Briefcase, ChevronDown, ChevronUp, GraduationCap, HeartHandshake, MapPin, Calendar, CheckCircle2 } from 'lucide-react';
 
 export const ExperienceTimeline = () => {
   const [expandedIndex, setExpandedIndex] = useState(0);
@@ -42,34 +42,34 @@ export const ExperienceTimeline = () => {
   };
 
   return (
-    <section id="experience" className="py-24 relative overflow-hidden bg-[var(--bg-main)]">
+    <section id="experience" className="py-16 sm:py-20 lg:py-24 relative overflow-hidden bg-[var(--bg-main)]">
       
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel text-cyan-600 dark:text-cyan-400 font-mono text-xs mb-3 border border-cyan-500/30 shadow-sm font-semibold">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+          <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full glass-panel text-cyan-400 font-mono text-[11px] sm:text-xs mb-3 border border-cyan-500/30 shadow-sm font-semibold">
             <Briefcase size={15} />
             <span>CAREER TRAJECTORY & PROVEN TRACK RECORD</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white uppercase tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white uppercase tracking-tight">
             5+ Years of Evolution in SaaS & Leadership
           </h2>
-          <p className="text-slate-700 dark:text-slate-300 text-sm sm:text-base mt-3 leading-relaxed font-medium">
+          <p className="text-slate-300 text-xs sm:text-sm md:text-base mt-2.5 sm:mt-3 leading-relaxed font-normal">
             Progressing from hands-on platform triage to project management and enterprise solution architecture.
           </p>
 
           {/* Tab Switcher */}
-          <div className="flex items-center justify-center gap-3 mt-8">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-3 mt-6 sm:mt-8 w-full sm:w-auto">
             <button
               onClick={() => {
                 sound.playClick();
                 setActiveTab('experience');
               }}
-              className={`px-5 py-2.5 rounded-xl text-xs font-mono transition-all flex items-center gap-2 cursor-pointer font-bold ${
+              className={`w-full sm:w-auto px-4 sm:px-5 py-2.5 rounded-xl text-xs font-mono transition-all flex items-center justify-center gap-2 cursor-pointer font-bold ${
                 activeTab === 'experience'
                   ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-md'
-                  : 'bg-white dark:bg-[#0e1424] text-slate-800 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white border border-slate-300 dark:border-white/10 shadow-sm'
+                  : 'bg-white/5 text-slate-300 hover:text-white border border-white/10 shadow-sm'
               }`}
             >
               <Briefcase size={15} />
@@ -81,10 +81,10 @@ export const ExperienceTimeline = () => {
                 sound.playClick();
                 setActiveTab('leadership');
               }}
-              className={`px-5 py-2.5 rounded-xl text-xs font-mono transition-all flex items-center gap-2 cursor-pointer font-bold ${
+              className={`w-full sm:w-auto px-4 sm:px-5 py-2.5 rounded-xl text-xs font-mono transition-all flex items-center justify-center gap-2 cursor-pointer font-bold ${
                 activeTab === 'leadership'
                   ? 'bg-gradient-to-r from-purple-500 to-indigo-600 text-white shadow-md'
-                  : 'bg-white dark:bg-[#0e1424] text-slate-800 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white border border-slate-300 dark:border-white/10 shadow-sm'
+                  : 'bg-white/5 text-slate-300 hover:text-white border border-white/10 shadow-sm'
               }`}
             >
               <HeartHandshake size={15} />
@@ -95,15 +95,15 @@ export const ExperienceTimeline = () => {
 
         {/* Tab 1: Professional Experience */}
         {activeTab === 'experience' && (
-          <div className="relative border-l-2 border-cyan-500/40 ml-4 md:ml-32 pl-6 md:pl-10 space-y-8">
+          <div className="relative border-l-2 border-cyan-500/40 ml-4 sm:ml-8 md:ml-28 pl-6 sm:pl-8 md:pl-10 space-y-6 sm:space-y-8">
             {experienceData.map((exp, idx) => {
               const isExpanded = expandedIndex === idx;
               const accent = getRoleAccent(exp.company, exp.role);
 
               return (
                 <div key={idx} className="relative group">
-                  {/* Multi-Color Timeline Pulse Node */}
-                  <div className={`absolute -left-[31px] md:-left-[47px] top-6 w-4 h-4 rounded-full bg-white dark:bg-[#07090e] border-2 ${accent.pulse} group-hover:scale-125 transition-transform shadow-md flex items-center justify-center`}>
+                  {/* Multi-Color Timeline Pulse Node precisely centered over the border */}
+                  <div className={`absolute -left-[33px] sm:-left-[41px] md:-left-[49px] top-5 sm:top-6 w-4 h-4 rounded-full bg-[#07090e] border-2 ${accent.pulse} group-hover:scale-125 transition-transform shadow-md flex items-center justify-center`}>
                     <div className="w-1.5 h-1.5 rounded-full bg-current"></div>
                   </div>
 
@@ -111,8 +111,8 @@ export const ExperienceTimeline = () => {
                   <div 
                     className={`rounded-2xl border transition-all duration-300 ${
                       isExpanded 
-                        ? 'bg-white dark:bg-[#0e1424] border-cyan-500/70 shadow-xl p-6 sm:p-8' 
-                        : `bg-white dark:bg-[#0e1424] border-slate-200 dark:border-white/10 ${accent.cardBorder} p-5 shadow-sm`
+                        ? 'bg-[#0e1424] border-cyan-500/70 shadow-xl p-5 sm:p-7 lg:p-8' 
+                        : `bg-[#0e1424] border-white/10 ${accent.cardBorder} p-4 sm:p-5 shadow-sm`
                     }`}
                   >
                     {/* Header Row */}
@@ -121,27 +121,27 @@ export const ExperienceTimeline = () => {
                       className="cursor-pointer flex flex-col sm:flex-row sm:items-center justify-between gap-3"
                     >
                       <div>
-                        <div className="flex flex-wrap items-center gap-2.5 mb-1.5">
-                          <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-300 transition-colors">
+                        <div className="flex flex-wrap items-center gap-2 mb-1.5">
+                          <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white group-hover:text-cyan-300 transition-colors">
                             {exp.role}
                           </h3>
-                          <span className={`text-xs font-mono font-bold px-3 py-0.5 rounded-lg shadow-sm ${accent.badge}`}>
+                          <span className={`text-[11px] sm:text-xs font-mono font-bold px-2.5 sm:px-3 py-0.5 rounded-lg shadow-sm ${accent.badge}`}>
                             {exp.company}
                           </span>
                           {exp.status === 'Current' && (
-                            <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-800 dark:text-emerald-300 border border-emerald-500/40 font-bold animate-pulse">
+                            <span className="text-[10px] font-mono px-2 sm:px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-bold animate-pulse">
                               PRESENT
                             </span>
                           )}
                         </div>
 
-                        <div className="flex items-center gap-4 text-xs font-mono text-slate-600 dark:text-slate-400 font-medium">
+                        <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-xs font-mono text-slate-400 font-medium">
                           <span className="flex items-center gap-1.5">
-                            <Calendar size={13} className="text-cyan-600 dark:text-cyan-400" />
+                            <Calendar size={13} className="text-cyan-400" />
                             {exp.period}
                           </span>
                           <span className="flex items-center gap-1.5">
-                            <MapPin size={13} className="text-cyan-600 dark:text-cyan-400" />
+                            <MapPin size={13} className="text-cyan-400" />
                             {exp.location}
                           </span>
                         </div>
@@ -237,34 +237,34 @@ export const ExperienceTimeline = () => {
         )}
 
         {/* Education Section Banner with Emerald / Cyan Jewel Glow */}
-        <div className="mt-16 bg-white dark:bg-[#0e1424] p-6 sm:p-8 rounded-2xl border border-emerald-500/30 max-w-4xl mx-auto shadow-xl">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-4">
-            <div className="flex items-center gap-4">
-              <div className="p-3.5 rounded-2xl bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/40 shadow-sm">
-                <GraduationCap size={26} />
+        <div className="mt-12 sm:mt-16 bg-[#0e1424] p-5 sm:p-8 rounded-2xl border border-emerald-500/30 max-w-4xl mx-auto shadow-xl">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 mb-4">
+            <div className="flex items-center gap-3.5 sm:gap-4">
+              <div className="p-2.5 sm:p-3.5 rounded-2xl bg-emerald-500/15 text-emerald-300 border border-emerald-500/40 shadow-sm shrink-0">
+                <GraduationCap size={24} className="sm:w-[26px] sm:h-[26px]" />
               </div>
               <div>
-                <span className="text-[11px] font-mono text-emerald-700 dark:text-emerald-400 tracking-wider uppercase block font-bold">
+                <span className="text-[10px] sm:text-[11px] font-mono text-emerald-400 tracking-wider uppercase block font-bold">
                   ACADEMIC FOUNDATION
                 </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white">
                   {educationData.degree}
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 font-mono font-semibold">
+                <p className="text-xs sm:text-sm text-slate-300 font-mono font-medium">
                   {educationData.institution} • {educationData.location}
                 </p>
               </div>
             </div>
 
-            <span className="px-3.5 py-1.5 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-300 dark:border-white/10 text-xs font-mono font-bold text-slate-800 dark:text-slate-200 shadow-sm">
+            <span className="px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-mono font-bold text-slate-200 shadow-sm self-start sm:self-auto">
               {educationData.period}
             </span>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-5 pt-4 border-t border-slate-200 dark:border-white/10 font-mono text-xs text-slate-800 dark:text-slate-200 font-medium">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5 mt-4 sm:mt-5 pt-3.5 sm:pt-4 border-t border-white/10 font-mono text-xs text-slate-200 font-medium">
             {educationData.focusAreas.map((area, aIdx) => (
               <div key={aIdx} className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span>
+                <span className="w-2 h-2 rounded-full bg-emerald-400 shrink-0"></span>
                 <span>{area}</span>
               </div>
             ))}

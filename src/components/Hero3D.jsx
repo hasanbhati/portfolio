@@ -33,13 +33,14 @@ export const Hero3D = ({ onOpenCV }) => {
 
     // --- THREE.JS SCENE SETUP ---
     const scene = new THREE.Scene();
+    const isMobileInit = container.clientWidth < 768;
     const camera = new THREE.PerspectiveCamera(
       45,
       container.clientWidth / container.clientHeight,
       0.1,
       1000
     );
-    camera.position.set(0, 0, 16);
+    camera.position.set(0, 0, isMobileInit ? 23 : 16);
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(container.clientWidth, container.clientHeight);
@@ -236,6 +237,8 @@ export const Hero3D = ({ onOpenCV }) => {
     const handleResize = () => {
       if (!container) return;
       camera.aspect = container.clientWidth / container.clientHeight;
+      const isMobileNow = container.clientWidth < 768;
+      camera.position.z = isMobileNow ? 23 : 16;
       camera.updateProjectionMatrix();
       renderer.setSize(container.clientWidth, container.clientHeight);
     };
@@ -291,12 +294,12 @@ export const Hero3D = ({ onOpenCV }) => {
   }, []);
 
   return (
-    <section className="relative min-h-[92vh] flex items-center justify-center pt-24 pb-16 overflow-hidden cyber-grid">
+    <section className="relative min-h-[90vh] sm:min-h-[92vh] flex items-center justify-center pt-24 sm:pt-28 pb-14 sm:pb-16 overflow-hidden cyber-grid">
       
       {/* 3D WebGL Canvas */}
       <div 
         ref={mountRef} 
-        className="absolute inset-0 z-0 pointer-events-auto cursor-grab active:cursor-grabbing opacity-90"
+        className="absolute inset-0 z-0 pointer-events-auto cursor-grab active:cursor-grabbing opacity-90 [touch-action:pan-y]"
         title="Interactive 3D Multi-Color Architecture Core (Drag or Move Mouse)"
       />
 
@@ -306,25 +309,25 @@ export const Hero3D = ({ onOpenCV }) => {
       {/* Floating HUD Badges (Desktop) */}
       <div className="hidden xl:block absolute top-28 left-8 z-20 pointer-events-none">
         <div className="glass-panel p-4 rounded-2xl font-mono text-[11px] space-y-1.5 border-l-4 border-l-cyan-500 shadow-lg">
-          <div className="flex items-center gap-2 text-cyan-700 dark:text-cyan-300 font-extrabold">
+          <div className="flex items-center gap-2 text-cyan-300 font-extrabold">
             <Activity size={14} className="animate-pulse text-cyan-500" />
             <span>SYSTEM TELEMETRY // LIVE</span>
           </div>
-          <div className="text-slate-700 dark:text-slate-300 font-medium">CORE: <span className="font-bold text-slate-950 dark:text-slate-100">SAAS ARCHITECTURE MATRIX</span></div>
-          <div className="text-slate-700 dark:text-slate-300 font-medium">WROCŁAW TIME: <span className="text-emerald-700 dark:text-emerald-400 font-bold">{timeWroclaw || '20:30:00'} CET</span></div>
-          <div className="text-slate-700 dark:text-slate-300 font-medium">PARALLAX: <span className="text-indigo-700 dark:text-indigo-300 font-bold">X:{coords.x} Y:{coords.y}</span></div>
+          <div className="text-slate-300 font-medium">CORE: <span className="font-bold text-slate-100">SAAS ARCHITECTURE MATRIX</span></div>
+          <div className="text-slate-300 font-medium">WROCŁAW TIME: <span className="text-emerald-400 font-bold">{timeWroclaw || '20:30:00'} CET</span></div>
+          <div className="text-slate-300 font-medium">PARALLAX: <span className="text-indigo-300 font-bold">X:{coords.x} Y:{coords.y}</span></div>
         </div>
       </div>
 
       <div className="hidden xl:block absolute top-28 right-8 z-20 pointer-events-none">
         <div className="glass-panel p-4 rounded-2xl font-mono text-[11px] space-y-1.5 border-r-4 border-r-purple-500 text-right shadow-lg">
-          <div className="flex items-center justify-end gap-2 text-purple-700 dark:text-purple-300 font-extrabold">
+          <div className="flex items-center justify-end gap-2 text-purple-300 font-extrabold">
             <span>ENTERPRISE SCOPE</span>
             <ShieldCheck size={14} className="text-purple-500" />
           </div>
-          <div className="text-slate-700 dark:text-slate-300 font-medium">ROLE: <span className="font-bold text-slate-950 dark:text-slate-100">SOLUTION ARCHITECT</span></div>
-          <div className="text-slate-700 dark:text-slate-300 font-medium">CLIENTS: <span className="text-amber-700 dark:text-amber-400 font-bold">FORTUNE 500 / GLOBAL</span></div>
-          <div className="text-slate-700 dark:text-slate-300 font-medium">LOCATION: <span className="text-cyan-700 dark:text-cyan-400 font-bold">WROCŁAW, POLAND</span></div>
+          <div className="text-slate-300 font-medium">ROLE: <span className="font-bold text-slate-100">SOLUTION ARCHITECT</span></div>
+          <div className="text-slate-300 font-medium">CLIENTS: <span className="text-amber-400 font-bold">FORTUNE 500 / GLOBAL</span></div>
+          <div className="text-slate-300 font-medium">LOCATION: <span className="text-cyan-400 font-bold">WROCŁAW, POLAND</span></div>
         </div>
       </div>
 
@@ -332,30 +335,30 @@ export const Hero3D = ({ onOpenCV }) => {
       <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pointer-events-auto">
         
         {/* Top Ticker Badge */}
-        <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass-panel border border-cyan-500/40 text-xs font-mono text-cyan-300 mb-6 shadow-sm">
-          <span className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 animate-pulse"></span>
-          <span className="font-bold tracking-wider">ENTERPRISE SAAS ARCHITECTURE & DIGITAL TRANSFORMATION</span>
+        <div className="inline-flex items-center gap-2 sm:gap-2.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full glass-panel border border-cyan-500/40 text-[10px] sm:text-xs font-mono text-cyan-300 mb-5 sm:mb-6 shadow-sm max-w-full">
+          <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 animate-pulse shrink-0"></span>
+          <span className="font-bold tracking-wider text-center leading-tight">ENTERPRISE SAAS ARCHITECTURE & DIGITAL TRANSFORMATION</span>
         </div>
 
         {/* Primary Name Headline */}
-        <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight uppercase font-sans mb-4">
+        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight uppercase font-sans mb-3 sm:mb-4">
           <span className="block text-slate-100 drop-shadow-sm">HASAN ATUL BHATI</span>
-          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 text-2xl sm:text-3xl md:text-4xl font-mono font-bold tracking-normal mt-2">
+          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-mono font-bold tracking-normal mt-2 leading-snug">
             Solution Architect & Project Manager
           </span>
         </h1>
 
         {/* Value Proposition Description */}
-        <p className="max-w-3xl mx-auto text-slate-200 text-sm sm:text-base md:text-lg leading-relaxed font-normal mb-9">
+        <p className="max-w-3xl mx-auto text-slate-200 text-xs sm:text-base md:text-lg leading-relaxed font-normal mb-8 sm:mb-9 px-1">
           Architecting resilient, scalable enterprise SaaS ecosystems. Specialized in translating high-stakes business requirements into seamless technical blueprints for <span className="text-cyan-400 font-bold">Microsoft, Bosch, Ring, Kärcher</span>, and global leaders from technical discovery to production adoption.
         </p>
 
-        {/* Interactive CTA Buttons */}
-        <div className="flex flex-wrap items-center justify-center gap-4 font-mono text-xs sm:text-sm">
+        {/* Interactive CTA Buttons (Full width on mobile, inline on desktop) */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 font-mono text-xs sm:text-sm w-full max-w-xs sm:max-w-none mx-auto">
           <a
             href="#architecture"
             onClick={() => sound.playClick()}
-            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 text-white font-bold tracking-wider uppercase shadow-lg hover:shadow-cyan-500/40 hover:scale-105 active:scale-95 transition-all"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 text-white font-bold tracking-wider uppercase shadow-lg hover:shadow-cyan-500/40 hover:scale-105 active:scale-95 transition-all"
           >
             <span>Explore Blueprints</span>
             <ArrowRight size={16} />
@@ -366,43 +369,43 @@ export const Hero3D = ({ onOpenCV }) => {
               sound.playClick();
               onOpenCV();
             }}
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl glass-panel border border-slate-300 dark:border-white/15 text-slate-900 dark:text-slate-100 hover:border-cyan-500 active:scale-95 transition-all cursor-pointer shadow-md font-bold"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl glass-panel border border-slate-300 dark:border-white/15 text-slate-100 hover:border-cyan-500 active:scale-95 transition-all cursor-pointer shadow-md font-bold"
           >
-            <Download size={16} className="text-cyan-600 dark:text-cyan-400" />
+            <Download size={16} className="text-cyan-400" />
             <span>Executive C.V.</span>
           </button>
 
           <a
             href="#contact"
             onClick={() => sound.playClick()}
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl glass-panel border border-slate-300 dark:border-white/15 text-slate-900 dark:text-slate-100 hover:border-purple-500 active:scale-95 transition-all cursor-pointer shadow-md font-bold"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl glass-panel border border-slate-300 dark:border-white/15 text-slate-100 hover:border-purple-500 active:scale-95 transition-all cursor-pointer shadow-md font-bold"
           >
-            <Send size={16} className="text-purple-600 dark:text-purple-400" />
+            <Send size={16} className="text-purple-400" />
             <span>Get In Touch</span>
           </a>
         </div>
 
         {/* Quick Multi-Color Stats Banner */}
-        <div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+        <div className="mt-10 sm:mt-14 grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4 max-w-4xl mx-auto">
           {personalInfo.stats.map((stat, idx) => {
             const statColors = [
-              'text-cyan-700 dark:text-cyan-400 border-t-cyan-500',
-              'text-purple-700 dark:text-purple-400 border-t-purple-500',
-              'text-emerald-700 dark:text-emerald-400 border-t-emerald-500',
-              'text-amber-700 dark:text-amber-400 border-t-amber-500'
+              'text-cyan-400 border-t-cyan-500',
+              'text-purple-400 border-t-purple-500',
+              'text-emerald-400 border-t-emerald-500',
+              'text-amber-400 border-t-amber-500'
             ];
             return (
               <div 
                 key={idx}
-                className={`glass-panel p-4 sm:p-5 rounded-2xl border-t-4 ${statColors[idx % statColors.length]} hover:scale-105 transition-all text-center group shadow-md`}
+                className={`glass-panel p-3.5 sm:p-5 rounded-2xl border-t-4 ${statColors[idx % statColors.length]} hover:scale-105 transition-all text-center group shadow-md`}
               >
-                <div className={`text-2xl sm:text-3xl font-black font-mono ${statColors[idx % statColors.length].split(' ')[0]}`}>
+                <div className={`text-xl sm:text-3xl font-black font-mono ${statColors[idx % statColors.length].split(' ')[0]}`}>
                   {stat.value}
                 </div>
-                <div className="text-xs font-bold text-slate-950 dark:text-slate-100 mt-1 uppercase tracking-wider">
+                <div className="text-[11px] sm:text-xs font-bold text-slate-100 mt-1 uppercase tracking-wider">
                   {stat.label}
                 </div>
-                <div className="text-[11px] text-slate-600 dark:text-slate-300 mt-1 font-medium hidden sm:block">
+                <div className="text-[10px] sm:text-[11px] text-slate-300 mt-1 font-medium hidden sm:block">
                   {stat.detail}
                 </div>
               </div>
