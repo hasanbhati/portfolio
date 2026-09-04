@@ -13,7 +13,11 @@ class SoundEngine {
       }
     }
     if (this.ctx && this.ctx.state === 'suspended') {
-      this.ctx.resume();
+      try {
+        this.ctx.resume().catch(() => {});
+      } catch {
+        // ignore audio state error
+      }
     }
   }
 

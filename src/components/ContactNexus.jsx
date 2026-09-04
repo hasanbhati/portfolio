@@ -12,7 +12,9 @@ export const ContactNexus = () => {
 
   const handleCopyEmail = () => {
     sound.playSuccess();
-    navigator.clipboard.writeText(personalInfo.email);
+    if (navigator?.clipboard?.writeText) {
+      navigator.clipboard.writeText(personalInfo.email).catch(() => {});
+    }
     setCopiedEmail(true);
     confetti({
       particleCount: 60,
