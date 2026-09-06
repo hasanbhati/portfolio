@@ -149,7 +149,7 @@ export const ExperienceTimeline = () => {
 
                       {/* Expand Toggle Button */}
                       <button 
-                        className="self-end sm:self-auto px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-white/5 text-slate-800 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white border border-slate-300 dark:border-white/10 hover:border-cyan-500 transition-all flex items-center gap-1.5 text-xs font-mono font-bold"
+                        className="self-end sm:self-auto px-3 py-1.5 rounded-xl bg-white/5 text-slate-200 hover:text-white border border-white/10 hover:border-cyan-500 transition-all flex items-center gap-1.5 text-xs font-mono font-bold"
                       >
                         <span>{isExpanded ? 'LESS' : 'DETAILS'}</span>
                         {isExpanded ? <ChevronUp size={15} /> : <ChevronDown size={15} />}
@@ -157,20 +157,20 @@ export const ExperienceTimeline = () => {
                     </div>
 
                     {/* Highlight snippet */}
-                    <p className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 mt-3 font-medium leading-relaxed">
+                    <p className="text-xs sm:text-sm text-slate-200 mt-3 font-medium leading-relaxed">
                       {exp.highlight}
                     </p>
 
                     {/* Detailed Accordion Content */}
                     {isExpanded && (
-                      <div className="mt-6 pt-6 border-t border-slate-200 dark:border-white/10 space-y-4 animate-in fade-in duration-200">
-                        <div className="text-xs font-mono text-cyan-700 dark:text-cyan-400 uppercase tracking-wider font-bold">
+                      <div className="mt-6 pt-6 border-t border-white/10 space-y-4 animate-in fade-in duration-200">
+                        <div className="text-xs font-mono text-cyan-400 uppercase tracking-wider font-bold">
                           Key Deliverables & Responsibilities:
                         </div>
-                        <ul className="space-y-3 text-xs sm:text-sm text-slate-800 dark:text-slate-200 font-medium">
+                        <ul className="space-y-3 text-xs sm:text-sm text-slate-200 font-medium">
                           {exp.bulletPoints.map((point, pIdx) => (
                             <li key={pIdx} className="flex items-start gap-2.5 leading-relaxed">
-                              <CheckCircle2 size={16} className="text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                              <CheckCircle2 size={16} className="text-emerald-400 shrink-0 mt-0.5" />
                               <span>{point}</span>
                             </li>
                           ))}
@@ -178,12 +178,12 @@ export const ExperienceTimeline = () => {
 
                         {/* Tech Stack Chips */}
                         <div className="pt-3">
-                          <div className="text-[11px] font-mono text-slate-700 dark:text-slate-300 mb-2 font-bold">DOMAIN COMPETENCIES:</div>
+                          <div className="text-[11px] font-mono text-slate-300 mb-2 font-bold">DOMAIN COMPETENCIES:</div>
                           <div className="flex flex-wrap gap-2">
                             {exp.techStack.map((tech, tIdx) => (
                               <span 
                                 key={tIdx} 
-                                className="px-3 py-1 rounded-lg bg-slate-100 dark:bg-white/5 border border-slate-300 dark:border-white/10 text-xs font-mono font-bold text-slate-900 dark:text-cyan-200 shadow-sm"
+                                className="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-xs font-mono font-bold text-cyan-200 shadow-sm"
                               >
                                 {tech}
                               </span>
@@ -206,27 +206,27 @@ export const ExperienceTimeline = () => {
             {volunteerExperience.map((vol, idx) => (
               <div 
                 key={idx}
-                className="bg-white dark:bg-[#0e1424] p-6 sm:p-7 rounded-2xl border border-slate-200 dark:border-white/10 hover:border-purple-500/50 transition-all shadow-sm"
+                className="bg-[#0e1424] p-6 sm:p-7 rounded-2xl border border-white/10 hover:border-purple-500/50 transition-all shadow-sm"
               >
                 <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
                   <div>
-                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                      <HeartHandshake size={19} className="text-purple-600 dark:text-purple-400" />
+                    <h3 className="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+                      <HeartHandshake size={19} className="text-purple-400" />
                       {vol.role}
                     </h3>
-                    <div className="text-xs font-mono font-bold text-cyan-700 dark:text-cyan-400 mt-1">
+                    <div className="text-xs font-mono font-bold text-cyan-400 mt-1">
                       {vol.organization} • {vol.location}
                     </div>
                   </div>
-                  <span className="text-xs font-mono px-3 py-1 rounded-lg bg-slate-100 dark:bg-white/5 border border-slate-300 dark:border-white/10 text-slate-800 dark:text-slate-300 font-bold">
+                  <span className="text-xs font-mono px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-300 font-bold">
                     {vol.period}
                   </span>
                 </div>
 
-                <ul className="space-y-2.5 text-xs sm:text-sm text-slate-800 dark:text-slate-200 font-medium mt-4">
+                <ul className="space-y-2.5 text-xs sm:text-sm text-slate-200 font-medium mt-4">
                   {vol.bulletPoints.map((pt, pIdx) => (
                     <li key={pIdx} className="flex items-start gap-2.5">
-                      <span className="text-purple-600 dark:text-purple-400 font-bold">•</span>
+                      <span className="text-purple-400 font-bold">•</span>
                       <span className="leading-relaxed">{pt}</span>
                     </li>
                   ))}

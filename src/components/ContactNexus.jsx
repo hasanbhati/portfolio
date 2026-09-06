@@ -38,7 +38,7 @@ export const ContactNexus = () => {
   };
 
   return (
-    <section id="contact" className="py-16 sm:py-20 lg:py-24 relative overflow-hidden bg-[var(--bg-main)] border-t border-slate-200/80 dark:border-white/5">
+    <section id="contact" className="py-16 sm:py-20 lg:py-24 relative overflow-hidden bg-[var(--bg-main)] border-t border-white/5">
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         

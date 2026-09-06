@@ -1,7 +1,10 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer base {
   :root {
+    color-scheme: dark;
     --bg-main: #07090e;
     --bg-card: rgba(13, 19, 32, 0.85);
     --bg-card-hover: rgba(18, 26, 44, 0.95);
@@ -38,6 +41,10 @@
     scroll-behavior: smooth;
   }
 
+  html {
+    color-scheme: dark;
+  }
+
   body {
     background-color: #07090e;
     color: #f8fafc;
@@ -45,6 +52,10 @@
     overflow-x: hidden;
     margin: 0;
     padding: 0;
+    color-scheme: dark;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
   /* Custom scrollbar */

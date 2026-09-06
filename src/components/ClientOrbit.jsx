@@ -68,7 +68,7 @@ export const ClientOrbit = () => {
   };
 
   return (
-    <section id="clients" className="py-16 sm:py-20 lg:py-24 relative overflow-hidden bg-[var(--bg-main)] border-t border-slate-200 dark:border-white/5">
+    <section id="clients" className="py-16 sm:py-20 lg:py-24 relative overflow-hidden bg-[var(--bg-main)] border-t border-white/5">
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -93,7 +93,7 @@ export const ClientOrbit = () => {
               <span key={i} className="inline-flex items-center gap-2.5 sm:gap-3">
                 <ClientBrandLogo name={client.name} className="w-5 h-5 shrink-0" />
                 <span className="font-extrabold text-slate-200">{client.name.toUpperCase()}</span>
-                <span className="text-slate-600">//</span>
+                <span className="text-slate-500">//</span>
               </span>
             ))}
           </div>

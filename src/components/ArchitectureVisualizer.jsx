@@ -91,7 +91,7 @@ export const ArchitectureVisualizer = () => {
                 >
                   {/* Step indicator */}
                   <div className="flex items-center justify-between mb-3 sm:mb-4">
-                    <span className={`text-xl sm:text-2xl font-black font-mono ${isSelected ? accent.numColor : 'text-slate-600'}`}>
+                    <span className={`text-xl sm:text-2xl font-black font-mono ${isSelected ? accent.numColor : 'text-slate-400'}`}>
                       {item.phase}
                     </span>
                     <div className={`p-2 sm:p-2.5 rounded-xl ${isSelected ? accent.iconBg : 'bg-white/5 text-slate-400'}`}>

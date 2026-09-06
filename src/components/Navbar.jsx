@@ -97,7 +97,7 @@ export const Navbar = ({ onOpenCV }) => {
             className={`p-2 rounded-xl border transition-all text-xs font-mono font-bold flex items-center gap-1.5 cursor-pointer ${
               audioEnabled 
                 ? 'border-cyan-500 bg-cyan-500/15 text-cyan-300 shadow-sm' 
-                : 'border-slate-300 dark:border-white/10 bg-slate-100 dark:bg-white/5 text-slate-700 dark:text-slate-300 hover:text-white'
+                : 'border-white/10 bg-white/5 text-slate-300 hover:text-white'
             }`}
           >
             {audioEnabled ? <Volume2 size={15} className="text-cyan-400 animate-pulse" /> : <VolumeX size={15} />}
@@ -110,7 +110,7 @@ export const Navbar = ({ onOpenCV }) => {
               sound.playClick();
               onOpenCV();
             }}
-            className="px-3 py-1.5 rounded-xl border border-slate-300 dark:border-white/15 bg-slate-100 dark:bg-white/5 hover:bg-white/10 text-xs font-mono font-bold text-slate-200 hover:border-cyan-500 transition-all flex items-center gap-1.5 cursor-pointer shadow-sm"
+            className="px-3 py-1.5 rounded-xl border border-white/15 bg-white/5 hover:bg-white/10 text-xs font-mono font-bold text-slate-200 hover:border-cyan-500 transition-all flex items-center gap-1.5 cursor-pointer shadow-sm"
           >
             <FileText size={13} className="text-cyan-400" />
             <span className="hidden lg:inline">CV_VIEW</span>

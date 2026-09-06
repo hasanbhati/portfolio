@@ -401,7 +401,7 @@ export const Hero3D = ({ onOpenCV }) => {
               sound.playClick();
               onOpenCV();
             }}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl glass-panel border border-slate-300 dark:border-white/15 text-slate-100 hover:border-cyan-500 active:scale-95 transition-all cursor-pointer shadow-md font-bold"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl glass-panel border border-white/15 text-slate-100 hover:border-cyan-500 active:scale-95 transition-all cursor-pointer shadow-md font-bold"
           >
             <Download size={16} className="text-cyan-400" />
             <span>Executive C.V.</span>
@@ -410,7 +410,7 @@ export const Hero3D = ({ onOpenCV }) => {
           <a
             href="#contact"
             onClick={() => sound.playClick()}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl glass-panel border border-slate-300 dark:border-white/15 text-slate-100 hover:border-purple-500 active:scale-95 transition-all cursor-pointer shadow-md font-bold"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl glass-panel border border-white/15 text-slate-100 hover:border-purple-500 active:scale-95 transition-all cursor-pointer shadow-md font-bold"
           >
             <Send size={16} className="text-purple-400" />
             <span>Get In Touch</span>

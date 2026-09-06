@@ -7,16 +7,16 @@ export const SkillsMatrix = () => {
   const [activeCategory, setActiveCategory] = useState('architecture');
 
   const categories = [
-    { key: 'architecture', label: 'Architecture & Strategy', icon: Layers, gradient: 'from-cyan-500 to-blue-600', text: 'text-cyan-600 dark:text-cyan-400' },
-    { key: 'development', label: 'Development & Data', icon: Code2, gradient: 'from-purple-500 to-pink-600', text: 'text-purple-600 dark:text-purple-400' },
-    { key: 'management', label: 'Delivery & Methodologies', icon: Cpu, gradient: 'from-emerald-500 to-teal-600', text: 'text-emerald-600 dark:text-emerald-400' },
-    { key: 'tools', label: 'Enterprise Platforms & Tools', icon: Wrench, gradient: 'from-amber-500 to-orange-600', text: 'text-amber-600 dark:text-amber-400' },
+    { key: 'architecture', label: 'Architecture & Strategy', icon: Layers, gradient: 'from-cyan-500 to-blue-600', text: 'text-cyan-400' },
+    { key: 'development', label: 'Development & Data', icon: Code2, gradient: 'from-purple-500 to-pink-600', text: 'text-purple-400' },
+    { key: 'management', label: 'Delivery & Methodologies', icon: Cpu, gradient: 'from-emerald-500 to-teal-600', text: 'text-emerald-400' },
+    { key: 'tools', label: 'Enterprise Platforms & Tools', icon: Wrench, gradient: 'from-amber-500 to-orange-600', text: 'text-amber-400' },
   ];
 
   const currentCategoryObj = categories.find(c => c.key === activeCategory) || categories[0];
 
   return (
-    <section id="skills" className="py-16 sm:py-20 lg:py-24 relative overflow-hidden bg-[var(--bg-main)] border-t border-slate-200/80 dark:border-white/5">
+    <section id="skills" className="py-16 sm:py-20 lg:py-24 relative overflow-hidden bg-[var(--bg-main)] border-t border-white/10">
       
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
