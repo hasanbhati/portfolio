@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Layers, Network, Users, CheckCircle2, Cpu, FileSpreadsheet, Workflow, GitMerge } from 'lucide-react';
+import { Layers, Network, Users, CheckCircle2, Cpu, Workflow, GitMerge } from 'lucide-react';
 import { sound } from '../utils/audio';
 import { methodologyPillars } from '../data/portfolioData';
 
@@ -72,7 +72,7 @@ export const ArchitectureVisualizer = () => {
         {/* BLOCK 1: Interactive 4-Phase Architecture Lifecycle */}
         {/* ======================================================== */}
         <div className="mb-14">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {methodologyPillars.map((item, idx) => {
               const isSelected = activePhase === idx;
               const accent = phaseAccents[idx];
@@ -119,46 +119,6 @@ export const ArchitectureVisualizer = () => {
             })}
           </div>
 
-          {/* Full-Width Phase Detail Showcase */}
-          <div className="bg-[#0e1424] p-5 sm:p-8 lg:p-9 rounded-2xl sm:rounded-3xl border border-white/10 relative overflow-hidden shadow-lg">
-            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-4 mb-5 sm:mb-6">
-              <div className={`inline-flex items-center gap-2 text-[11px] sm:text-xs font-mono px-3 sm:px-3.5 py-1.5 rounded-lg border font-bold ${phaseAccents[activePhase].badge}`}>
-                <span className="w-2 h-2 rounded-full bg-current animate-pulse"></span>
-                <span>CAPABILITY 0{activePhase + 1} • FOCUS AREAS</span>
-              </div>
-              <span className="font-mono text-[11px] text-slate-400 font-bold hidden sm:inline-block">
-                BUSINESS NEEDS // PRACTICAL DELIVERY
-              </span>
-            </div>
-
-            <div className="max-w-4xl space-y-4 sm:space-y-6">
-              <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white">
-                {methodologyPillars[activePhase].title}
-              </h3>
-              <p className="text-slate-200 text-xs sm:text-sm md:text-base leading-relaxed font-normal">
-                {methodologyPillars[activePhase].desc}
-              </p>
-
-              {/* Deliverables */}
-              <div className="pt-2">
-                <div className="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-slate-300 mb-3 flex items-center gap-2 font-bold">
-                  <FileSpreadsheet size={15} className="text-cyan-400 shrink-0" />
-                  <span>Key activities and deliverables:</span>
-                </div>
-                <div className="flex flex-wrap gap-2 sm:gap-3">
-                  {methodologyPillars[activePhase].deliverables.map((deliv, i) => (
-                    <span 
-                      key={i}
-                      className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-white/5 border border-cyan-500/20 text-[11px] sm:text-xs font-mono font-bold text-cyan-200 flex items-center gap-2 hover:border-cyan-500 transition-colors shadow-sm"
-                    >
-                      <CheckCircle2 size={14} className="text-emerald-400 shrink-0" />
-                      <span>{deliv}</span>
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* ======================================================== */}
